@@ -52,7 +52,7 @@
 \newfontfamily\bodyfont[]{Exo-Regular.otf}
 \newfontfamily\thinfont[]{Exo-ExtraLight.otf}
 \newfontfamily\headingfont[]{Exo-Bold.otf}
-\newfontfamily\italicsfont[]{Exo-LightItalic.otf}
+\newfontfamily\italicsfont[]{Exo-ExtraLightItalic.otf}
 
 \newcommand{\italics}[1]{%
   {\italicsfont #1}%
