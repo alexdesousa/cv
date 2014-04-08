@@ -282,4 +282,4 @@
 %%%%%%%%%%%%%%%%
 
 \RequirePackage[left=6.1cm,top=2cm,right=1.5cm,bottom=1.5cm,nohead,nofoot]{geometry}
-\RequirePackage{hyperref}
+\RequirePackage[colorlinks=true]{hyperref}
