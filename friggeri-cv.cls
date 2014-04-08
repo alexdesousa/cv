@@ -52,6 +52,12 @@
 \newfontfamily\bodyfont[]{Exo-Regular.otf}
 \newfontfamily\thinfont[]{Exo-Light.otf}
 \newfontfamily\headingfont[]{Exo-ExtraBold.otf}
+\newfontfamily\italicsfont[]{Exo-ExtraLightItalic.otf}
+
+\newcommand{\italics}[1]{%
+  \italicsfont #1%
+  \thinfont
+}
 
 \defaultfontfeatures{Mapping=tex-text}
 \setmainfont[Mapping=tex-text, Color=textcolor]{Exo-Light.otf}
