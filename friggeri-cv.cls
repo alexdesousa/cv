@@ -50,13 +50,12 @@
 \RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
 
 \newfontfamily\bodyfont[]{Exo-Regular.otf}
-\newfontfamily\thinfont[]{Exo-Light.otf}
-\newfontfamily\headingfont[]{Exo-ExtraBold.otf}
-\newfontfamily\italicsfont[]{Exo-ExtraLightItalic.otf}
+\newfontfamily\thinfont[]{Exo-ExtraLight.otf}
+\newfontfamily\headingfont[]{Exo-Bold.otf}
+\newfontfamily\italicsfont[]{Exo-LightItalic.otf}
 
 \newcommand{\italics}[1]{%
-  \italicsfont #1%
-  \thinfont
+  {\italicsfont #1}%
 }
 
 \defaultfontfeatures{Mapping=tex-text}
