@@ -31,6 +31,7 @@
   \colorlet{green}{gray}
   \colorlet{orange}{gray}
   \colorlet{purple}{gray}
+  \colorlet{brown}{gray}
   \colorlet{red}{gray}
   \colorlet{blue}{gray}
   \colorlet{fillheader}{white}
@@ -49,19 +50,18 @@
 \RequirePackage[quiet]{fontspec}
 \RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
 
-\newfontfamily\bodyfont[]{Exo-Regular.otf}
-\newfontfamily\thinfont[]{Exo-ExtraLight.otf}
-\newfontfamily\headingfont[]{Exo-Bold.otf}
-\newfontfamily\italicsfont[]{Exo-ExtraLightItalic.otf}
+\newfontfamily\bodyfont[Path=fonts/]{Exo-Regular.otf}
+\newfontfamily\thinfont[Path=fonts/]{Exo-ExtraLight.otf}
+\newfontfamily\headingfont[Path=fonts/]{Exo-Bold.otf}
+\newfontfamily\italicsfont[Path=fonts/]{Exo-ExtraLightItalic.otf}
 
 \newcommand{\italics}[1]{%
   {\italicsfont #1}%
 }
 
 \defaultfontfeatures{Mapping=tex-text}
-\setmainfont[Mapping=tex-text, Color=textcolor]{Exo-Light.otf}
+\setmainfont[Mapping=tex-text, Color=textcolor, Path=fonts/]{Exo-Light.otf}
 
-%\setmathfont{XITS Math}
 
 %%%%%%%%%%
 % Header %
@@ -106,7 +106,8 @@
         red\or%
         orange\or%
         green\or%
-        purple\else%
+        purple\or%
+        brown\else%
         headercolor\fi%
     } #1#2#3%
   }%
@@ -177,9 +178,10 @@
 % Bibliography %
 %%%%%%%%%%%%%%%%
 
-\RequirePackage[style=verbose, maxnames=99, sorting=ydnt]{biblatex}
+\RequirePackage[backend=biber, style=verbose, maxnames=99, sorting=ydnt]{biblatex}
 
 \DeclareFieldFormat[article]{title}{#1\par}
+\DeclareFieldFormat[book]{title}{#1\par}
 \DeclareFieldFormat[inproceedings]{title}{#1\par}
 \DeclareFieldFormat[misc]{title}{#1\par}
 \DeclareFieldFormat[report]{title}{#1\par}
@@ -203,6 +205,27 @@
   }
   \par\vspace{0.3\baselineskip}
 }
+
+\DeclareBibliographyDriver{book}{%
+  \printfield{title}%
+  \newblock%
+  \printnames{author}%
+  \par%
+  \newblock%
+  {%
+    \footnotesize\addfontfeature{Color=lightgray}\itshape%
+    \printlist{publisher}%
+    \setunit*{\addcomma\space}%
+    \printfield{note}%
+    \setunit*{\addcomma\space}%
+    \printfield{year}%
+    \setunit{\addcomma\space}%
+    \printlist{location}%
+    \newunit%
+  }
+  \par\vspace{0.3\baselineskip}
+}
+
 
 \DeclareBibliographyDriver{inproceedings}{%
   \printfield{title}%
@@ -286,5 +309,5 @@
 % Other tweaks %
 %%%%%%%%%%%%%%%%
 
-\RequirePackage[left=6.1cm,top=2cm,right=1.5cm,bottom=0.5cm,nohead,nofoot]{geometry}
-\RequirePackage[colorlinks=true]{hyperref}
+\RequirePackage[left=6.1cm,top=2cm,right=1.5cm,bottom=2.5cm,nohead,nofoot]{geometry}
+\RequirePackage[colorlinks=true, pdfborder={0,0,0}]{hyperref}

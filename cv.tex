@@ -1,114 +1,207 @@
-%!TEX TS-program = xelatex
-\documentclass[]{friggeri-cv}
-\addbibresource{bibliography.bib}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Friggeri Resume/CV
+% XeLaTeX Template
+% Version 1.0 (5/5/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Adrien Friggeri (adrien@friggeri.net)
+% https://github.com/afriggeri/CV
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important notes:
+% This template needs to be compiled with XeLaTeX and the bibliography, if used,
+% needs to be compiled with biber rather than bibtex.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[]{friggeri-cv} % Add 'print' as an option into the square bracket to remove colors from this template for printing
+
+\addbibresource{bibliography.bib} % Specify the bibliography file to include publications
+
+\usepackage{ifthen}
+
+\newcommand{\myage}[3]{%
+    \newcounter{age}
+    \setcounter{age}{\the\year}
+    \addtocounter{age}{-#1}
+    \ifthenelse{\the\month < #2}{
+        \addtocounter{age}{-1}
+    }{
+        \ifthenelse{\the\month = #2}{
+            \ifthenelse{\the\day < #3}{
+                \addtocounter{age}{-1}
+            }{}
+        }{}
+    }
+    \theage
+}
 
 \begin{document}
-\header{lorenzo }{fundaró}
-       {backend engineer}
 
+\header{Alexander}{De Sousa}{Software Engineer}
 
-% In the aside, each new line forces a line break
-\begin{aside}
-  \section{about}
-    26 year old man.
-    Italian \& Venezuelan citizen.
-    ~
-    \href{mailto:lorenzofundaro@gmail.com}{gmail://lorenzofundaro}
-    \href{http://github.com/lfundaro}{github://lfundaro}
-    \href{http://ve.linkedin.com/in/lfundaro/}{linkedin://lfundaro}
-    skype: lfundaro
-    Tel.: +58-414-5411065
-  \section{languages}
-    spanish (native),
-   english C2, french C2,
-   italian B1
-  \section{programming}
-    {\color{red} $\varheartsuit$} Java/Scala
-    SQL, Python, C/C++, Haskell.
-   \section{core values}
-    committed, loyal, 
-    honest, joyful.
-   \section{others}
-   soccer, cooking,
-   half marathon runner, 
-   ted talks, sociology,
-   trekking, ping pong,
-   languages, travelling.
+%-------------------------------------------------------------------------------
+%	SIDEBAR SECTION
+%-------------------------------------------------------------------------------
+
+\begin{aside} % In the aside, each new line forces a line break
+\section{About}
+\myage{1989}{01}{12} years old man.
+Portuguese \& Venezuelan citizen.
+\section{Contact}
+%Carrer Lope de Vega, 119,
+%4to, 2da
+%Barcelona, 08005
+%Spain
+%~
+%+34 (000) 111 1112
+%~
+\href{skype://adesousa42}{skype://adesousa42}
+\href{http://github.com/alexdesousa}{github://alexdesousa}
+\href{https://www.linkedin.com/in/ajdesousa}{linkedin://ajdesousa}
+~
+\href{mailto:alexanderjosedesousa@gmail.com}{alexanderjosedesousa at gmail dot
+com}
+\section{Languages}
+Spanish, English \& Portuguese.
+\section{Programming}
+{\color{red} $\varheartsuit$} Erlang, C/C++
+Haskell, Python, Javascript,
+Prolog, Actionscript, Java, PHP.
+\section{Frameworks}
+Chicago Boss, Django.
 \end{aside}
 
-\section{interests}
+%-------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%-------------------------------------------------------------------------------
 
-backend programming for highly scalable systems, web services, distributed systems, system performance, 
-capacity planning \& scalability, functional programming, software design patterns.
-
-\section{education}
-
-\begin{entrylist}
-  \entry
-    {\small 2006-2012}
-    {Computer Engineer}
-    {Simón Bolívar University, Caracas}
-    {GPA 3.9/5.0, Majors: Artiﬁcial Intelligence,\\
-     Combinatorial Optimization, Computer Graphics.}
-  \entry
-    {\small 2010-2011}
-    {International Exchange Student}
-    {Université de Technologie de Compiègne, France}
-    {Topics: Information Retrieval, Entrepreneurship.}
-\end{entrylist}
-
-\section{experience}
+\section{Education}
 
 \begin{entrylist}
-  \entry
-    {\small 08-12 / 04-14}
-    {Synergy Global Business, Caracas}
-    {Backend Engineer}
-    {+ Developed Java based \textbf{REST} web services and did JVM/Network/Database/\\
-        Application-Server \textbf{performance tuning} for \italics{Mercantil Móvil}, the second\\
-        largest mobile banking app in Venezuela. (about 50.2K operations/min.).\\
-     + Set the roadmap and implemented \textbf{scalability} tests with \textbf{JMeter} for\\
-         \italics{Banesco Móvil}, the largest mobile banking app in Venezuela (about 125.6K operations/min.) .\\
-     + Leveraged the \textbf{continuous integration} by introducing Maven and Nexus.\\
-     + Developed \italics{Banca+}, a product-based mobile banking application which\\ 
-        offers fast integration time with third-party web services using \textbf{J2EE} and\\
-        \textbf{NoSQL/SQL} technologies.}
-  \entry
-    {\small 01-13 / 08-13}
-    {ESDATA, Caracas}
-    {Ad-honorem Mobile Developer}
-    {+ Developed \italics{ElectorActivo} on \textbf{Android}, a mobile app that allows\\
-         citizens to ﬁnd out about their voting center on public elections,\\
-         subscribe for volunteering and others. ESDATA is an NGO.}
-  \entry
-    {\small 01-11 / 07-11}
-    {Gostai, Paris}
-    {Internship}
-    {+ Created an installation tool for the \italics{Jazz Robot} bringing down\\
-          installation time from 4h to 1h.\\
-      + Implemented a solution to decrease acoustic echo and\\
-          noise on \italics{Jazz Robot}.\\
-      + Implemented an automatic update system for the\\
-          \italics{Jazz Robot} Software using \textbf{GNU/Linux Debian} package manager.}
-  \entry
-    {\small 09-08 / 07-10}
-    {Simón Bolívar University, Caracas}
-    {Network and System Administrator}
-    {+ Administered 72 workstations running both on \textbf{Linux} and \textbf{Windows}.\\
-     + Incremented academic productivity on the lab team by proposing\\
-         quarterly talks about new technologies.}
+%------------------------------------------------
+\entry
+{2014--2015}
+{Master {\normalfont in Mobile Business \& Apps Design}}
+{UPC, Barcelona (Spain)}
+{In course.}
+\entry
+{2006--2011}
+{Bachelor {\normalfont in Computer Engineering}}
+{USB, Caracas (Venezuela)}
+{I am specialized in Computer Graphics and Algorithms Design and Optimization.
+Besides I took 3 electives: Wireless Networks, Advanced Functional Programming
+and Business Economics.
+\\
+In my undergraduate thesis, we compared several metaheuristcs to solve the
+numeric data clustering problem using images as test subjects.
+\\
+Also, I contributed in the writing of an paper about the study of the behavior
+of the information exchange between nodes in a vehicular network
+using traditional WiFi technology equipment.}
+\entry
+{2006--2007}
+{Network Administrator Certification}
+{Muelles de Alejandría, Caracas (Venezuela)}
+{CCNA preparation course.}
+\entry
+{2004--2007}
+{Portuguese Language Certification}
+{Centro de Portugués, Caracas (Venezuela)}
+{Reached advanced level.}
+%------------------------------------------------
 \end{entrylist}
 
-\section{awards}
+%-------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%-------------------------------------------------------------------------------
+
+\section{Experience}
 
 \begin{entrylist}
-  \entry
-    {\small 08-2013}
-    {Fund for leaders and high performance employees}
-    {Synergy Global Business}
-    {I was given this prize for my contribution to \italics{Mercantil Móvil} (mobile banking\\
-     app) backend services which consisted on reducing service downtimes,\\
-     improving deployment process and giving insight on performance analysis.}
+%------------------------------------------------
+\entry
+{2012--2014}
+{GMT Prime Corp}
+{Caracas, Venezuela}
+{Worked with several Metatrader 4 technologies, including MT4 client MQL
+scripts and MT4 server plugins.
+\\
+Designed a load distribution system (Erlang, C++, C\#) to send and retrieve
+information from the Forex market for several client accounts.
+\\
+Adapted the MT4 C\# API provided by a third party to run in Linux machines
+using Mono.
+\\   
+Designed a C++ framework to facilitate the implementation of new
+functionalities in the company's MT4 server plugin.}
 \end{entrylist}
+
+%----------------------------------------------------------------------------------------
+%	AWARDS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Projects}
+
+\begin{entrylist}
+\entry
+{Mar 2014}
+{VPN Book Buttom}
+{Open Source}
+{Open source project to automate the connection to the free VPNs offered by VPN
+Book. The project only works in Linux using bash scripts.}
+\entry
+{Feb 2014}
+{Tentacles Server}
+{Open Source}
+{Erlang gen-server wrap for the implementation of concurrent servers.}
+\entry
+{Apr 2011}
+{Nutrijuegos}
+{Universidad Simón Bolívar, Caracas (Venezuela)}
+{Educative games for children to learn about nutrition.}
+\end{entrylist}
+
+%-------------------------------------------------------------------------------
+%	INTERESTS SECTION
+%-------------------------------------------------------------------------------
+
+\section{Interests}
+
+\textbf{Professional:} backend programming for highly scalable systems, web
+services, distributed systems, parallel programming, capacity planning \&
+scalability, functional programming, artificial intelligence. \textbf{Personal:}
+gaming, reading books, writing stories, hiking.
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Publications}
+
+\printbibsection{article}{article in peer-reviewed journal} % Print all articles from the bibliography
+
+\printbibsection{book}{books} % Print all books from the bibliography
+
+\begin{refsection} % This is a custom heading for those references marked as "inproceedings" but not containing "keyword=france"
+\nocite{*}
+\printbibliography[sorting=chronological, type=inproceedings, title={International peer-reviewed conferences/proceedings}, notkeyword={france}, heading=subbibliography]
+\end{refsection}
+
+\begin{refsection} % This is a custom heading for those references marked as "inproceedings" and containing "keyword=france"
+\nocite{*}
+\printbibliography[sorting=chronological, type=inproceedings, title={local peer-reviewed conferences/proceedings}, keyword={france}, heading=subbibliography]
+\end{refsection}
+
+\printbibsection{misc}{other publications} % Print all miscellaneous entries from the bibliography
+
+\printbibsection{report}{Thesis} % Print all research reports from the bibliography
+
+%----------------------------------------------------------------------------------------
 
 \end{document}
