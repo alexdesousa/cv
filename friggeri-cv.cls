@@ -131,7 +131,6 @@
 
 \pagestyle{empty}
 
-
 %%%%%%%%%%%%%%%%%%%%
 % List environment %
 %%%%%%%%%%%%%%%%%%%%
@@ -302,7 +301,6 @@
   \sort[direction=descending]{\field{year}}
   \sort[direction=descending]{\field{month}}
 }
-
 
 
 %%%%%%%%%%%%%%%%

@@ -20,7 +20,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[]{friggeri-cv} % Add 'print' as an option into the square bracket to remove colors from this template for printing
-
 \addbibresource{bibliography.bib} % Specify the bibliography file to include publications
 
 \usepackage{ifthen}
@@ -41,87 +40,62 @@
     \theage
 }
 
+\newcommand{\chl}[2]{
+    \ifdefined\isspanish
+        #2
+    \else
+        #1
+    \fi
+}
+
+\newcommand{\chlsection}[2]{
+    \ifdefined\isspanish
+        \section{#2}
+    \else
+        \section{#1}
+    \fi
+}
+
 \begin{document}
 
-\header{Alexander}{De Sousa}{Software Engineer}
+\header{Alexander}{De Sousa}{\chl{Software Engineer}{Ingeniero de Software}}
 
 %-------------------------------------------------------------------------------
 %	SIDEBAR SECTION
 %-------------------------------------------------------------------------------
 
 \begin{aside} % In the aside, each new line forces a line break
-\section{About}
-\myage{1989}{01}{12} years old man.
-Portuguese \& Venezuelan citizen.
-\section{Contact}
-%Carrer Lope de Vega, 119,
-%4to, 2da
-%Barcelona, 08005
-%Spain
-%~
-%+34 (000) 111 1112
-%~
-\href{skype://adesousa42}{skype://adesousa42}
+\section{\chl{About}{Acerca de mí}}
+\chl{\myage{1989}{01}{12} years old man.
+Portuguese \& Venezuelan citizen.}{\myage{1989}{01}{12} años.
+Ciudadano Portugués y Venezolano.}
+\section{\chl{Contact}{Contacto}}
+Carrer Lope de Vega, 119,
+4ta, 2do
+Barcelona, 08005
+\chl{Spain}{España}
+~
++34 (695) 44 38 66
+~
 \href{http://github.com/alexdesousa}{github://alexdesousa}
 \href{https://www.linkedin.com/in/ajdesousa}{linkedin://ajdesousa}
 ~
-\href{mailto:alexanderjosedesousa@gmail.com}{alexanderjosedesousa at gmail dot
-com}
-\section{Languages}
-Spanish, English \& Portuguese.
-\section{Programming}
+\href{mailto:alexanderjosedesousa@gmail.com}{\chl{alexanderjosedesousa at gmail dot
+com}{alexanderjosedesousa arroba gmail punto com}}
+\section{\chl{Languages}{Idiomas}}
+\chl{Spanish, English \& Portuguese.}{Castellano, Inglés y Portugués.}
+\section{\chl{Programming}{Lenguajes}}
 {\color{red} $\varheartsuit$} Erlang, C/C++
-Haskell, Python, Javascript,
-Prolog, Actionscript, Java, PHP.
+Python, Javascript, Actionscript, Java, PHP.
 \section{Frameworks}
-Chicago Boss, Django.
+Chicago Boss, Java Spring MVC, Angular, Bootstrap, Django.
 \end{aside}
-
-%-------------------------------------------------------------------------------
-%	EDUCATION SECTION
-%-------------------------------------------------------------------------------
-
-\section{Education}
-
-\begin{entrylist}
-%------------------------------------------------
-\entry
-{2014--2015}
-{Master {\normalfont in Mobile Business \& Apps Design}}
-{UPC, Barcelona (Spain)}
-{In course.}
-\entry
-{2006--2011}
-{Bachelor {\normalfont in Computer Engineering}}
-{USB, Caracas (Venezuela)}
-{I am specialized in Computer Graphics and Algorithms Design and Optimization.
-Besides I took 3 electives: Wireless Networks, Advanced Functional Programming
-and Business Economics.
-\\
-In my undergraduate thesis, we compared several metaheuristcs to solve the
-numeric data clustering problem using images as test subjects.
-\\
-Also, I contributed in the writing of an paper about the study of the behavior
-of the information exchange between nodes in a vehicular network
-using traditional WiFi technology equipment.}
-\entry
-{2006--2007}
-{Network Administrator Certification}
-{Muelles de Alejandría, Caracas (Venezuela)}
-{CCNA preparation course.}
-\entry
-{2004--2007}
-{Portuguese Language Certification}
-{Centro de Portugués, Caracas (Venezuela)}
-{Reached advanced level.}
-%------------------------------------------------
-\end{entrylist}
 
 %-------------------------------------------------------------------------------
 %	WORK EXPERIENCE SECTION
 %-------------------------------------------------------------------------------
 
-\section{Experience}
+\chlsection{Work Experience}{Experiencia Laboral}
 
 \begin{entrylist}
 %------------------------------------------------
@@ -129,60 +103,116 @@ using traditional WiFi technology equipment.}
 {2012--2014}
 {GMT Prime Corp}
 {Caracas, Venezuela}
-{Worked with several Metatrader 4 technologies, including MT4 client MQL
-scripts and MT4 server plugins.
-\\
-Designed a load distribution system (Erlang, C++, C\#) to send and retrieve
-information from the Forex market for several client accounts.
-\\
-Adapted the MT4 C\# API provided by a third party to run in Linux machines
-using Mono.
-\\   
-Designed a C++ framework to facilitate the implementation of new
-functionalities in the company's MT4 server plugin.}
+{\begin{itemize}
+  \item \chl{Worked with several Metatrader 4 technologies, including MT4 client MQL
+scripts and MT4 server plugins.}{Trabajé con varias tecnologías de Metatrader 4,
+incluyendo scripts de MQL para el cliente MT4 y plug-ins para el servidor MT4.}
+  \item \chl{Designed a load distribution system (Erlang, C++, C\#) to send and retrieve
+information from the Forex market for several client accounts.}{Diseñé un sistema
+de distribución de carga (Erlang, C++, C\#) para enviar y recibir información del
+mercado de Forex para varias cuentas clientes.}
+  \item \chl{Adapted the MT4 C\# API provided by a third party to run in Linux machines
+using Mono.}{Adapté el API de MT4 hecho en C\# (hecho por un tercero), para que
+se ejecutara en máquinas con Linux, usando Mono.}
+  \item \chl{Designed a C++ framework to facilitate the implementation of new
+functionalities in the company's MT4 server plugin.}{Diseñé un framework en C++
+para facilitar la implementación de nuevas funcionalidades para el plug-in de
+MT4 de la compañia.}
+\end{itemize}}
+\entry
+{2014--\chl{Now}{Ahora}}
+{InWork Solutions (Freelancer)}
+{Caracas, Venezuela}
+{\begin{itemize}
+  \item \chl{Developed back-end RESTful services in Java Spring MVC for an electronic payment
+application}{Desarrollé un back-end con servicios RESTful en Java Spring MVC para una aplicación
+de pago electrónico}
+\end{itemize}}
+\end{entrylist}
+
+%-------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%-------------------------------------------------------------------------------
+
+\chlsection{Education}{Educación}
+
+\begin{entrylist}
+%------------------------------------------------
+\entry
+{2014--2015}
+{Master {\normalfont in Mobile Business \& Apps Design}}
+{UPC, Barcelona (\chl{Spain}{España})}
+{\chl{In course.}{En curso}}
+\entry
+{2006--2011}
+{\chl{Bachelor {\normalfont in Computer Engineering}}{Ingeniero de Computación}}
+{USB, Caracas (Venezuela)}
+{\chl{I am specialized in Computer Graphics and Algorithms Design and Optimization.
+Besides I took 3 electives: Wireless Networks, Advanced Functional Programming
+and Business Economics.}{Estoy especializado en Computación Gráfica, Diseño de
+Algorimos y Optimización. Además, tomé tres electivas: Redes Inalámbricas,
+Programación Funcional Avanzada y Economía de la Empresa.}}
+\entry
+{2006--2007}
+{\chl{Network Administrator Certification}{Certificación de Administrador de Redes}}
+{Muelles de Alejandría, Caracas (Venezuela)}
+{\chl{CCNA preparation course.}{Curso de preparación para CCNA.}}
+\entry
+{2004--2007}
+{\chl{Portuguese Language Certification}{Certificación de Portugués}}
+{Centro de Portugués, Caracas (Venezuela)}
+{\chl{Reached advanced level.}{Alcancé nivel avanzado.}}
+%------------------------------------------------
 \end{entrylist}
 
 %----------------------------------------------------------------------------------------
-%	AWARDS SECTION
+%	PROJECTS SECTION
 %----------------------------------------------------------------------------------------
 
-\section{Projects}
+\chlsection{Projects}{Proyectos}
 
 \begin{entrylist}
 \entry
 {Mar 2014}
 {VPN Book Buttom}
 {Open Source}
-{Open source project to automate the connection to the free VPNs offered by VPN
-Book. The project only works in Linux using bash scripts.}
+{\chl{Open source project to automate the connection to the free VPNs offered by VPN
+Book. The project only works in Linux using bash scripts.}{Proyecto open source
+para automatizar la conexión a los VPNs gratis ofrecidos por VPN Book. El proyecto
+solo funciona en Linux, usando scripts bash.}}
 \entry
 {Feb 2014}
 {Tentacles Server}
 {Open Source}
-{Erlang gen-server wrap for the implementation of concurrent servers.}
+{\chl{Erlang gen-server wrap for the implementation of concurrent servers.}{Envoltorio
+de gen-server de Erlang para la implementación de servidores concurrentes.}}
 \entry
-{Apr 2011}
+{\chl{Apr}{Abr} 2011}
 {Nutrijuegos}
 {Universidad Simón Bolívar, Caracas (Venezuela)}
-{Educative games for children to learn about nutrition.}
+{\chl{Actionscript based educative games for children to learn about nutrition.}{Juegos
+educativos hechos en Actionscript para que niños aprendan sobre nutrición.}}
 \end{entrylist}
 
 %-------------------------------------------------------------------------------
 %	INTERESTS SECTION
 %-------------------------------------------------------------------------------
 
-\section{Interests}
+\chl{}{\newpage}
+\chlsection{Interests}{Intereses}
 
-\textbf{Professional:} backend programming for highly scalable systems, web
-services, distributed systems, parallel programming, capacity planning \&
-scalability, functional programming, artificial intelligence. \textbf{Personal:}
-gaming, reading books, writing stories, hiking.
+\chl{\textbf{Professional:} front-end and back-end programming for highly scalable
+systems, mobile applications development, functional programming. \textbf{Personal:}
+gaming, reading books, writing stories, hiking.}{\textbf{Profesional:} programación de
+front-end y back-end para sistemas altamente escalables, desarrollo de aplicaciones
+móviles, programación funcional. \textbf{Personal:} gaming, leer libros,
+escribir historias cortas, caminar.}
 
 %----------------------------------------------------------------------------------------
 %	PUBLICATIONS SECTION
 %----------------------------------------------------------------------------------------
 
-\section{Publications}
+\chlsection{Publications}{Publicaciones}
 
 \printbibsection{article}{article in peer-reviewed journal} % Print all articles from the bibliography
 
@@ -190,7 +220,7 @@ gaming, reading books, writing stories, hiking.
 
 \begin{refsection} % This is a custom heading for those references marked as "inproceedings" but not containing "keyword=france"
 \nocite{*}
-\printbibliography[sorting=chronological, type=inproceedings, title={International peer-reviewed conferences/proceedings}, notkeyword={france}, heading=subbibliography]
+\printbibliography[sorting=chronological, type=inproceedings, title={\chl{International peer-reviewed conferences/proceedings}{Conferencias}}, notkeyword={france}, heading=subbibliography]
 \end{refsection}
 
 \begin{refsection} % This is a custom heading for those references marked as "inproceedings" and containing "keyword=france"
@@ -200,8 +230,7 @@ gaming, reading books, writing stories, hiking.
 
 \printbibsection{misc}{other publications} % Print all miscellaneous entries from the bibliography
 
-\printbibsection{report}{Thesis} % Print all research reports from the bibliography
+\printbibsection{report}{\chl{Undergraduate Thesis}{Tesis de Grado}} % Print all research reports from the bibliography
 
 %----------------------------------------------------------------------------------------
-
 \end{document}

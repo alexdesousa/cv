@@ -1,17 +1,9 @@
 cv.pdf: cv.tex friggeri-cv.cls bibliography.bib
-	xelatex cv.tex
+	xelatex --jobname=cv_es "\def\isspanish{1} \input{cv.tex}"; xelatex --jobname=cv cv.tex
 	biber cv
-	xelatex cv.tex
-
-cv_es.pdf: cv_es.tex friggeri-cv.cls bibliography.bib
-	xelatex cv_es.tex
 	biber cv_es
-	xelatex cv_es.tex
-
-espanol: cv_es.pdf
-
-english: cv.pdf
+	xelatex --jobname=cv_es "\def\isspanish{1} \input{cv.tex}"; xelatex --jobname=cv cv.tex
 
 clean:
-	ls | grep "^cv\.[^tex]" | xargs rm    
+	ls | grep "^cv\.[^tex]" | xargs rm
 	ls | grep "^cv_es\.[^tex]" | xargs rm
